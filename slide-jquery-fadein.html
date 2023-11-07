@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>슬라이드집중-페이드인</title>
+  <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+  <style>
+/* RESET */
+*{padding: 0;margin: 0; color: #333;}
+li{list-style: none;}
+a{text-decoration: none;}
+a:hover{color: red;}
+/* COMMON */
+.container{max-width: 1200px; margin: 0 auto;}
+.rel{position: relative;}
+.abs{position: absolute;}
+.d-flex{display: flex;}
+.d-block{display: block;}
+.jcb{justify-content: space-between;}
+.aic{align-items: center;}
+.ofh{overflow: hidden;}
+.h-0{height: 0;}
+.h-100px{height: 100px;}
+.h-200px{height: 200px;}
+.h-300px{height: 300px;}
+.w-100{width: 100%;}
+.w-1200px{width: 1200px;}
+.z-1{z-index: 1;}
+.z-2{z-index: 2;}
+.z-3{z-index: 3;}
+.bd{border: 1px solid #333;}
+.bg-red{background-color: red;}
+.bg-yellow{background-color: yellow;}
+.bg-green{background-color: green;}
+
+/* MAIN */
+.swiper-wrapper{
+  /* overflow가 적용되는걸 볼려고 일부러 극단적으로 width를 높힘
+     overflow가 적용될려면 자식이 부모보다 커야되므로 ! 
+   */
+  width: 9999px;
+}
+.swiper-slide{
+  opacity: 0;
+  transition: .5s;
+}
+.on.swiper-slide{
+  opacity: 1;
+  z-index: 9; 
+  /* z-index로 맨위로 보내는 것이 핵심*/
+}
+  </style>
+</head>
+<body>
+  <!-- .swiper.ofh>.swiper-wrapper.d-flex>.swiper-slide.h-300px*3{$} -->
+  <div class="swiper container h-300px ofh rel">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide abs w-1200px h-300px bd bg-red on">1</div><!-- 처음나올 slide에 on 지정하기. -->      
+      <div class="swiper-slide abs w-1200px h-300px bd bg-yellow">2</div>
+      <div class="swiper-slide abs w-1200px h-300px bd bg-green">3</div>
+    </div>
+  </div>
+  <script>
+    /* 
+    사용할 메서드 : setInterval, animate, css, appendTo
+    setInterval(function(){},반복될시간)
+    $('태그선택').animate({적용할 애니메이션},speed, function() {})
+    $('태그선택').css({'스타일','스타일값'})
+    $('옮길태그').appendTo($(부모가될태그))
+     */
+
+    /* 나머지식으로 순환코드만드는게 핵심. 예를들어 3으로 나눠서 나머지가 될 수 있는 수는 1,2.
+     */
+    let count = 0;
+    let slideNum = $('.swiper-slide').length;
+
+    $(document).ready(function(){      
+
+      setInterval(fadeSlide,3000) // 콜백함수로 빼줘서 메모리 아끼기.
+      /* 
+        그냥 이름없이 실행 vs 콜백함수로 실행
+        그냥 실행하면, 3초마다 실행식을 다 해석함.
+        But 콜백함수로 실행하면 함수만 실행.
+        강사님 비유 : 전화번호 매번 입력해서 전화하기 vs 단축번호지정해서 전화하기.
+       */
+
+      function fadeSlide(){ // 선언적함수
+        count++;
+        count = count % slideNum; // 1, 2, 0, 1 ...
+        // 방법 1
+        $('.swiper-slide').eq(count) // siblings()가 $('.swiper-slide').eq(count) 를 선택함.
+        .addClass('on').siblings().removeClass('on') // siblings : 자신을 제외한 형제 요소 선택
+
+        // 방법 2 : 나중에 토글에서 문제생길 수 있음.
+        /* $('.swiper-slide').removeClass('on')
+        $('.swiper-slide').eq(count).addClass('on') */
+        console.log($('.swiper-slide').eq(count) // siblings()가 $('.swiper-slide').eq(count) 를 선택함.
+          .siblings())
+      }
+    })
+    
+  </script>
+</body>
+</html>
