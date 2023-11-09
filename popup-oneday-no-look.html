@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8" />
+  <title>팝업-하루동안-보지않기</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+    crossorigin="anonymous"></script>
+  <style>
+/* PopUP */
+.popupdiv::before{
+  content: "";
+  position: fixed;
+  /* background-color: rgba(72, 72, 72, 0.5); */
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;  
+}
+.popupdiv #popup {
+  display: block;
+}
+
+#popup {
+  position: fixed;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  
+  width: 80%;
+  height: 80%;
+  padding: 2rem 2rem;
+  z-index: 99;
+
+  border-radius: 10px;
+
+  display: none;
+
+  background-color: white;
+  border: 1px solid #333;
+}
+
+#popup .popup-btn {
+  background-color: #333;
+  width: 100%;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;  
+  text-align: center;
+  border-radius: 0 0 10px 10px;
+}
+#popup .popup-btn a {
+  color: #fff;
+  padding: 0 5px;
+}
+  </style>
+</head>
+
+<body>
+  <div id="popup">
+    <div class="popup-content">팝업내용</div>
+    <div class="popup-btn">
+      <a href="javascript:void(0);" onclick="exit2()">하루동안 보지 않기</a>
+      <input type="checkbox" name="layer-close">
+      <a class="close" href="javascript:void(0);" onclick="exit()">닫기</a>
+  </div>
+  <script>
+
+    // 하루동안 안보기
+    $(document).ready(function () {
+      cookiedata = document.cookie;
+      if (cookiedata.indexOf("close=Y") < 0) {
+        $("#popup").show();
+      } else {
+        $("#popup").hide();
+      }
+    });
+
+    function exit() {
+      if ($("input[name=layer-close]").is(":checked") == true) {
+        setCookie("close", "Y", 1);
+      }
+
+      $("#popup").hide();
+    }
+
+    function exit2() {
+      $("#popup").hide();
+      setCookie("close", "Y", 1);
+    }
+
+    function setCookie(cname, cvalue, exdays) {
+      var d = new Date();
+      d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000)); //시간설정 
+      var expires = "expires=" + d.toUTCString();
+      var temp = cname + "=" + cvalue + "; " + expires;
+      document.cookie = temp;
+    }
+  </script>
+</body>
+
+</html>

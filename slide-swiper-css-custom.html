@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>스와이퍼 CSS 커스텀</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <style>
+   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;400;600&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans KR';
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* MAIN */
+#mainBanner .swiper-wrapper {
+  /* right: 50%; */
+}
+#mainBanner .swiper-slide {
+  height: 430px;
+  background-color: rgb(57, 0, 83);
+  border: 1px solid #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+}
+#mainBanner .swiper-pagination {
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  background-color: #eeff00;
+  /* opacity: .3; */
+  padding: 5px 20px;
+  border-radius: 20px;
+  color: #000;
+}
+/* 방법 - 1 */
+/* #mainBanner .btn-wrap {
+  max-width: 1200px;
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9;
+}
+#mainBanner .swiper-button-prev,
+#mainBanner .swiper-button-next{
+  position: static !important;
+  top: 10%;
+}
+#mainBanner .between-btn {
+  width: 500px;
+  height: 1px;
+} */
+
+/* 방법 - 2 */
+.btn-wrap {
+  position: absolute;
+  z-index: 99;
+  width: 1000px;
+  height: 1px;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;  
+}
+
+#mainBanner .swiper-button-prev::after,
+#mainBanner .swiper-button-next::after{
+  /* font-size: 0; */
+  display: none;
+}
+#mainBanner .swiper-button-prev,
+#mainBanner .swiper-button-next{
+  width: 5rem;
+  height: 5rem;
+}
+#mainBanner .swiper-button-next{
+  border-top: 3px dashed salmon;
+  border-right: 3px dashed salmon;
+  transform: rotate(45deg);
+  transform-origin: right; 
+  right: 2rem;
+}
+#mainBanner .swiper-button-prev:hover::before {
+  content: "before";
+  font-size: 2rem;
+  color: salmon;
+  transform: rotate(45deg);
+}
+#mainBanner .swiper-button-next:hover::before {
+  content: "next";
+  font-size: 2rem;
+  color: salmon;
+  transform: rotate(-45deg);
+}
+#mainBanner .swiper-button-prev{  
+  border-top: 3px dashed salmon;
+  border-left: 3px dashed salmon;
+  transform: rotate(-45deg);
+  transform-origin: left; 
+}
+#mainBanner .swiper-slide{
+  color: white;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    
+    <div class="container">
+      <!-- 상단컨텐츠 제작해주세요. -->
+    </div>
+
+    <div id="mainBanner">
+      <!-- 9개 슬라이드. 높이 600px -->
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">Slide 1
+          </div>
+          <div class="swiper-slide">Slide 2
+          </div>
+          <div class="swiper-slide">Slide 3
+            
+          </div>
+          <div class="swiper-slide">Slide 4</div>
+          <div class="swiper-slide">Slide 5</div>
+          <div class="swiper-slide">Slide 6</div>
+          <div class="swiper-slide">Slide 7</div>
+          <div class="swiper-slide">Slide 8</div>
+          <div class="swiper-slide">Slide 9</div>
+        </div>
+        <div class="swiper-pagination"></div>  
+
+        <div class="btn-wrap">
+          <div class="swiper-button-prev"></div>
+          <div class="between-btn"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+
+      </div>
+    </div>
+    
+  <script>
+      new Swiper('#mainBanner .swiper', {
+  // direction: 'vertical',
+  loop: true,
+  slidesPerView: 1.8,
+  spaceBetween: 0,
+  centeredSlides: true,
+
+  pagination: {
+    el: '#mainBanner .swiper-pagination',
+    type: "fraction",
+    clickable: true,
+  },
+  navigation: {
+    nextEl: '#mainBanner .swiper-button-next',
+    prevEl: '#mainBanner .swiper-button-prev',
+  },
+  autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },  
+});
+  </script>
+</body>
+</html>
