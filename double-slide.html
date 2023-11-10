@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>원버튼 이중 슬라이드</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <style>
+    .swiper {
+      margin-bottom: 100px;
+      border: 1px solid #333;
+      font-size: 3rem;
+    }
+
+    .swiper-slide {
+      height: 500px;
+      margin: 10px;
+    }
+    #mainSwiper {
+      background-color: salmon;
+    }
+    #centerSwiper {
+      background-color: skyblue;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 자동롤링 / 하나씩 / 좌우 / 4초마다 / 페이지네이션 / 앞뒤버튼 생략 -->
+  <div class="swiper" id="mainSwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">Slide A</div>
+      <div class="swiper-slide">Slide B</div>
+      <div class="swiper-slide">Slide C</div>
+    </div>
+  </div>
+
+  <!-- 자동롤링 / 센터모드 / 1.8걸침 / 좌우 / 2초마다 / 페이지네이션 / 앞뒤버튼 필요 -->
+  <div class="swiper" id="centerSwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">Slide A</div>
+      <div class="swiper-slide">Slide B</div>
+      <div class="swiper-slide">Slide C</div>
+    </div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+
+  <script>
+    const mainSwiper = new Swiper('#mainSwiper.swiper', {
+      
+      // 반복
+      loop: true,
+      
+      direction: 'horizontal',
+      pagination: {
+        el: '#mainSwiper .swiper-pagination',
+      },
+    });
+
+    const centerSwiper = new Swiper('#centerSwiper.swiper', {
+      
+      // 루프반복
+      loop: true,
+      // 페이지네이션
+      pagination: {
+        el: '#centerSwiper .swiper-pagination',
+        // 인디케이터에 클릭가능하게하기.
+        clickable:true,
+      },
+      // 앞뒤버튼
+      navigation: {
+        nextEl: '#centerSwiper .swiper-button-next',
+        prevEl: '#centerSwiper .swiper-button-prev',
+      },
+    });
+
+    centerSwiper.controller.control = mainSwiper;
+    mainSwiper.controller.control = centerSwiper;
+  </script>
+</body>
+
+</html>
