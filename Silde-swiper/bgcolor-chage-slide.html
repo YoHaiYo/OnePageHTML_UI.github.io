@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>슬라이드변경시 색변경</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <!-- 플러그인 스타일 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- 플러그인 자바스크립트 -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- Jquery -->
+  <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+    crossorigin="anonymous"></script>
+  <!-- 내꺼 자바스크립트 -->
+  <style>
+    .d-flex {
+      display: flex;
+    }
+
+    .abs {
+      position: absolute;
+    }
+
+    .p-unset {
+      position: unset !important;
+    }
+
+    .border {
+      border: 1px solid white;
+    }
+
+    .w-auto {
+      width: auto !important
+    }
+
+
+    #mainBanner .btns {
+      bottom: 2rem;
+      left: 0;
+      right: 0;
+      justify-content: center;
+      z-index: 10000;
+      line-height: 2rem;
+    }
+
+    /* 배경처리 : 찌그러지지않게 처리하기 */
+    #mainBanner .swiper-slide {
+      height: 0;
+      padding-top: 43%;
+      /* width 100% 조건이 내장되어야 한다.*/
+      background-repeat: no-repeat;
+      background-size: 100%;
+    }
+
+    #mainBanner .swiper-pagination {
+      align-items: center;
+      display: flex;
+    }
+
+    #mainBanner .swiper-pagination-bullet {
+      border-radius: 0;
+      width: 3rem;
+      height: 8px;
+      opacity: 1;
+      margin: 0;
+      position: relative;
+    }
+
+    .swiper-pagination-bullet:before {
+      content: "";
+      display: block;
+      position: absolute;
+      height: 1px;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      background-color: white;
+    }
+
+    #mainBanner .swiper-pagination-bullet-active {
+      background-color: transparent;
+    }
+
+    #mainBanner .swiper-pagination-bullet-active:before {
+      height: 3px;
+    }
+
+    .bg0 {
+      background-image: url(https://www.cj.co.kr/cj_files/main/visual/202309/1693899949661_0.jpg);
+    }
+
+    .bg1 {
+      background-image: url(https://www.cj.co.kr/cj_files/main/visual/201901/1546929273425_0.jpg);
+    }
+
+    .bg2 {
+      background-image: url(https://www.cj.co.kr/cj_files/main/visual/201901/1546928897582_0.jpg);
+    }
+
+    .bg3 {
+      background-image: url(https://www.cj.co.kr/cj_files/main/visual/202308/1692251347164_0.jpg);
+    }
+
+    #mainBanner .toggle {
+      background-color: transparent;
+      width: 2rem;
+      height: 2rem;
+      color: #fff;
+      border-radius: 50%;
+      font-size: 1.2em;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    #mainBanner .toggle.on::before {
+      content: "\F4F5";
+    }
+
+    .realIndex0 {
+      background-color: saddlebrown;
+    }
+
+    .realIndex1 {
+      background-color: salmon;
+    }
+
+    .realIndex2 {
+      background-color: sandybrown;
+    }
+
+    .realIndex3 {
+      background-color: seagreen;      
+    }
+  </style>
+</head>
+
+<body class="realIndex0"><!-- 초기에 적용할 배경색 -->
+  
+  <div id="mainBanner">
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide bg0"></div>
+        <div class="swiper-slide bg1"></div>
+        <div class="swiper-slide bg2"></div>
+        <div class="swiper-slide bg3"></div>
+      </div>
+
+      <div class="btns  d-flex  abs ">
+        <button class="toggle border bi bi-pause"></button>
+        <div class="swiper-pagination p-unset w-auto"></div>
+      </div>
+
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </div>
+  <script>
+    $(document).ready(function () {
+
+      const swiperMain = new Swiper('#mainBanner .swiper', {
+        loop: true,
+        effect: 'fade',
+        pagination: {
+          el: '#mainBanner .swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '#mainBanner .swiper-button-next',
+          prevEl: '#mainBanner .swiper-button-prev',
+        },
+        autoplay: {
+          delay: 2000,
+          disableOnInteraction: false,
+          // pauseOnMouseEnter: true
+        },
+        on: { // SWIPER의 이벤트는 다 요기 안에 써라.
+
+          realIndexChange: function () {
+            // console.log('realIndex',this.realIndex)
+            // console.log('-----')
+            /* realIndexChange는 진짜 현재슬라이드만 보여줌. 그래서 이걸 쓰는게 좋습니다~ */
+            document.body.classList = "realIndex" + this.realIndex;
+          },
+        }
+      });
+
+      // 이벤트이기 때문에 function을 받음. 메서드는 값을 받음.
+      var toggle = true;
+      $('.toggle').click(function () {
+        $(this).toggleClass("on");
+
+        if (toggle) {
+          swiperMain.autoplay.stop()
+          toggle = false;
+
+        } else {
+          swiperMain.autoplay.start();
+          toggle = true;
+        }
+      })
+    })
+  </script>
+</body>
+
+</html>
