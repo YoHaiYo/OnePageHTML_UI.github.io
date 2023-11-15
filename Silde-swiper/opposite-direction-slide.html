@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>각각 양쪽방향으로 슬라이드</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.js" integrity="sha512-vtbFVybaj5JGg0+f2nzplUxp+5NSqxyInLlVFmUyXEEawwwckoT24Lq2LgWJflhpdlL73s1F0t4AQpFZ9qf9rQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
+  <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+    crossorigin="anonymous"></script>
+  <style>
+    body {
+      background-color: #333;
+    }
+    h1 {
+      color: #fff;
+      text-align: center;
+    }
+
+    .swiper {
+      margin-bottom: 20px;
+    }
+
+    .swiper-wrapper {
+      transition-timing-function: linear;
+    }
+
+    .swiper-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #fff;
+      padding: 15px 0;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .swiper-slide:nth-child(odd) {
+      background-color: pink
+    }
+
+    .swiper-slide:nth-child(even) {
+      background-color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>주의 !! SWIPER 5버전임 ! </h1>
+  <div class="swiper" dir="ltr">
+	  <div class="swiper-wrapper">
+	    <div class="swiper-slide">1</div>
+	    <div class="swiper-slide">2</div>
+	    <div class="swiper-slide">3</div>
+	    <div class="swiper-slide">4</div>
+	    <div class="swiper-slide">5</div>
+	    <div class="swiper-slide">6</div>
+	    <div class="swiper-slide">7</div>
+	    <div class="swiper-slide">8</div>
+	    <div class="swiper-slide">9</div>
+	    <div class="swiper-slide">10</div>
+	  </div>
+	</div>
+	<div class="swiper" dir="rtl">
+	  <div class="swiper-wrapper">
+	    <div class="swiper-slide">1</div>
+	    <div class="swiper-slide">2</div>
+	    <div class="swiper-slide">3</div>
+	    <div class="swiper-slide">4</div>
+	    <div class="swiper-slide">5</div>
+	    <div class="swiper-slide">6</div>
+	    <div class="swiper-slide">7</div>
+	    <div class="swiper-slide">8</div>
+	    <div class="swiper-slide">9</div>
+	    <div class="swiper-slide">10</div>
+	  </div>
+	</div>
+
+
+  <script>
+    $(document).ready(function () {
+      
+      $('.swiper').each(function(index) {
+  t = $(this);
+  t.addClass('swiepr-' + index);
+
+  let swiper = new Swiper('.swiper', {
+    autoplay: {
+      delay: 0, //add
+      disableOnInteraction: false,
+    },
+    speed: 5000,
+    loop: true,
+    loopAdditionalSlides: 1,
+    slidesPerView: 5,
+  });
+});
+    })
+  </script>
+</body>
+
+</html>
