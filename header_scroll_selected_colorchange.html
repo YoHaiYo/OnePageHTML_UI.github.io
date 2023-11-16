@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>헤더스크롤,위로버튼,선택메뉴 색바꾸기</title>
+  <!-- <link rel="stylesheet" href="./css/web.css"> -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
   <style>
@@ -14,7 +15,7 @@
 		#about {
     margin-top: 90px;
    }
-   .act {
+   .selected {
     color: salmon !important;
    }
   </style>
@@ -41,21 +42,23 @@
   </section>
 
   <a href="#totop" class="scrolla position-fixed btn-primary p-3 m-3" style="bottom: 0; right: 0;">↑</a>
-
+<!-- #hd로 하면 헤더가 fixed라서 맨위로 안감. fixed는 따라다니는얘 이므로 -->
 <script>
   let targetnm = '';
   $("a.scrolla").click(function(e){
     e.preventDefault(); // 책갈피 기능 없앨려고
-    targetnm = $(this).attr('href'); 
-    console.log(targetnm, typeof targetnm, $(targetnm).offset().top)// offset().top : 상단위치를 수치로 보여줌.
-    // stop(true, true) : 클릭 여러번해도 animate 가 여러번 걸리는걸 방지      
+    targetnm = $(this).attr('href'); //attr : 속성접근
+    // offset().top : 상단위치를 수치로 보여줌.
+    console.log(targetnm, typeof targetnm, $(targetnm).offset().top)
+    // $('a').attr('href','#none') // 모든 a태그의 href값을 #none으로 바꿔줘.
     $('body, html').stop(true, true).animate({scrollTop : $(targetnm).offset().top - 90})
+    // stop(true, true) : 클릭 여러번해도 animate 가 여러번 걸리는걸 방지      
 
     // ★선택됬을때 색상바꾸기.
-    $('a.scrolla').removeClass('act')
-    $(this).addClass('act');
-    // console.log($(this).parent().index())
+    $('a.scrolla').removeClass('selected')
+    $(this).addClass('selected');
   })
+
 </script>
 
 </html>
