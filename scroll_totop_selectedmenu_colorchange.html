@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>헤더스크롤,위로버튼,선택메뉴 색바꾸기</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+  <style>
+   * {
+    list-style: none;
+   }
+		#about {
+    margin-top: 90px;
+   }
+   .act {
+    color: salmon !important;
+   }
+  </style>
+</head>
+
+<body id="totop">
+  <header id="hd" class="fixed-top bg-white border-bottom py-4">
+    <ul class="d-flex justify-content-center">
+      <li><a href="#about" class="scrolla mx-3">소개섹션으로 가줘</a></li>
+      <li><a href="#product" class="scrolla mx-3">상품섹션으로 가줘</a></li>
+      <li><a href="#interview" class="scrolla mx-3">면접제안으로 가줘</a></li>
+      <li><a href="#none" class="mx-3">깃페이지으로 가줘</a></li>
+    </ul>
+  </header>
+
+  <section class="vh-100 border" id="about">
+    <h2>소개</h2>
+  </section>
+  <section class="vh-100 border" id="product">
+    <h2>상품</h2>
+  </section>
+  <section class="vh-100 border" id="interview">
+    <h2>면접제안</h2>
+  </section>
+
+  <a href="#totop" class="scrolla position-fixed btn-primary p-3 m-3" style="bottom: 0; right: 0;">↑</a>
+
+<script>
+  let targetnm = '';
+  $("a.scrolla").click(function(e){
+    e.preventDefault(); // 책갈피 기능 없앨려고
+    targetnm = $(this).attr('href'); 
+    console.log(targetnm, typeof targetnm, $(targetnm).offset().top)// offset().top : 상단위치를 수치로 보여줌.
+    // stop(true, true) : 클릭 여러번해도 animate 가 여러번 걸리는걸 방지      
+    $('body, html').stop(true, true).animate({scrollTop : $(targetnm).offset().top - 90})
+
+    // ★선택됬을때 색상바꾸기.
+    $('a.scrolla').removeClass('act')
+    $(this).addClass('act');
+    // console.log($(this).parent().index())
+  })
+</script>
+
+</html>
