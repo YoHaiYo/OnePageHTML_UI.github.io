@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>댓글달기</title>
+  <link rel="stylesheet" href="./common.css">
+  <link rel="stylesheet" href="./style1.css">
+  <link rel="stylesheet" href="./style2.css">
+  <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="Comments" class="w1280 marginAuto">
+    <h4>제주도 최고의 여행지를 이웃과 함께 공유해보세요!</h4>
+    <form action="">
+        <div class="CommentsForm">
+            <div>
+                <label for=""><span>*</span>이름 / 닉네임 : </label>
+                <input type="text" class="CommentsNickname">
+            </div>
+            
+            <div class="d-flex jcc aic">
+                <textarea class="txtarea" name="" id="" cols="" rows="" placeholder="내용을 적어주세요" maxlength="320"></textarea>
+                <p class="textLeng"><span class="textLengSpan">0</span>자 / 최대 320자</p>
+                <button>등록</button>
+            </div>
+           
+        </div>
+    </form>
+    
+    <div class="CommentsContent">
+
+        <section class="con">
+            <div class="d-flex aic">
+                <div class="d-flex jcc aic">
+                    <p class="nickName">나는 닉네임</p>
+                    <p class="dates">2023-08-23</p>
+                </div>
+                <p class="delete">삭제</p>
+            </div>
+            <div class="CommentsCon">
+                <p>제주도 가봤는데 성산일출봉 짱짱 좋았어요 추천추천!!~!~! <br>제주도 가봤는데 성산일출봉 짱짱 좋았어요 추천추천!!~!~! 제주도 가봤는데 성산일출봉 짱짱</p>
+            </div>
+        </section>
+       
+
+
+
+
+    </div>
+</div>
+  <script>    
+$("#Comments .CommentsContent ").on('click','.delete', function(){
+    if(confirm("댓글을 삭제하시겠습니까?")){
+		alert("댓글이 삭제되었습니다.");
+        $(this).parent().parent().remove();
+	}else{
+		
+	};
+});
+
+
+$("#Comments button").click(function(){
+
+    var textareaContent = document.querySelector(".txtarea").value;
+    var textareaNickName = document.querySelector(".CommentsNickname").value;
+    const cons = document.querySelector(".CommentsContent");
+
+
+
+    console.log(textareaContent,textareaNickName)
+
+    
+    if(confirm("댓글을 등록하시겠습니까?")){
+		console.log("등록되었습니다"); 
+
+        cons.innerHTML +=  `
+    <section class="con">
+        <div class="d-flex aic">
+            <div class="d-flex jcc aic">
+                <p class="nickName">${textareaNickName}</p>
+                <p class="dates">${dateString}</p>
+            </div>
+            <p class="delete">삭제</p>
+        </div>
+        <div class="CommentsCon">
+            <p>${textareaContent}</p>
+        </div>
+    </section>`;
+
+	}else{
+		console.log("댓글 등록이 취소되었습니다."); 
+	}
+});
+
+let textLength = 0
+
+$('.txtarea').keyup(function() {
+    textLength = $(this).val().length;
+    document.querySelector(".textLengSpan").innerHTML = textLength;
+});
+
+
+  </script>
+</body>
+</html>
