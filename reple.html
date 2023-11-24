@@ -17,127 +17,18 @@
     crossorigin="anonymous"></script>
 
   <style>
-    /* COMMON */
-    :root {
-      --main-font-color: #000f22;
-      /* 메인 폰트컬러 */
-
-      --main_color1: #0675c1;
-      /* 메인컬러 1 */
-
-      --main_color2: #059b84;
-      /* 메인컬러 2 */
-
-      --main_color3: #d48121;
-      /* 메인컬러 3 */
-
-      --contents_bg_color: #F8F8F8;
-      /*컨텐츠 배경색*/
-
-      --contents_border_color: #ECECEC;
-      /*컨텐츠 border 색깔*/
-    }
-
-
-
-    @font-face {
-      font-family: 'GmarketSansMedium';
-      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
-      font-weight: normal;
-      font-style: normal;
-    }
-
-
-    * {
-      margin: 0;
-      padding: 0;
-      font-family: 'Noto Sans KR', sans-serif !important;
-      color: var(--main-font-color);
-      box-sizing: border-box;
-    }
-
-    button {
-      background: inherit;
-      border: none;
-      box-shadow: none;
-      border-radius: 0;
-      padding: 0;
-      overflow: visible;
-      cursor: pointer;
-    }
-
-    body {
-      overflow-x: hidden;
-    }
-
-    ul {
-      list-style: none;
-    }
-
     a {
       text-decoration: none;
+      color: #333;
     }
-
-
-    h1 {
-      font-weight: 600;
-      font-size: 40px;
-      text-align: center;
-      line-height: 80px;
+    a:hover{
+      color: #333;
     }
-
-    h5 {
-      font-size: 20px;
-      font-weight: 300;
-      text-align: center;
-      margin-bottom: 100px;
-    }
-
-
-
-    /* flex */
-    .d-flex {
-      display: flex;
-    }
-
-    .jcc {
-      justify-content: center;
-    }
-
-    .aic {
-      align-items: center;
-    }
-
-
-
-
-    /* position */
-    .rel {
-      position: relative;
-    }
-
-    .abs {
-      position: absolute;
-    }
-
-
-
-    /* width */
-    .w1280 {
-      width: 1280px;
-    }
-
-    .marginAuto {
-      margin: 0 auto;
-    }
-
-    .txtAC {
-      text-align: center;
-    }
-
 
     /* #Comments 영역 */
-    #Comments {}
+    #Comments {
+      /* max-width: 1000px; */
+    }
 
     #Comments input,
     #Comments textarea {
@@ -166,8 +57,8 @@
     #Comments .textLeng {
       position: absolute;
       bottom: 20px;
-      right: 13%;
-      z-index: 9999;
+      right: 150px;
+      z-index: 9;
       font-size: 14px;
     }
 
@@ -227,9 +118,13 @@
 
     /* 따로추가 */
     #Comments .enroll {
-      border: 1px solid #333;
+      border: 1px solid #33333362;
       padding: 2.5rem;
       background-color: skyblue;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-wrap: nowrap;
     }
   </style>
 </head>
@@ -238,7 +133,7 @@
   <div id="wrap">
 
 
-    <div id="Comments" class="w1280 marginAuto">
+    <div id="Comments" class="container">
       <h4>댓글달기</h4>
       <hr>
       <form action="">
