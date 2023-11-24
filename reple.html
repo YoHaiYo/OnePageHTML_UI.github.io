@@ -191,14 +191,27 @@
 
   // 댓글 삭제
 
-    $("#Comments .CommentsContent ").on('click', '.delete', function () {
-      if (confirm("댓글을 삭제하시겠습니까?")) {
-        alert("댓글이 삭제되었습니다.");
-        $(this).parent().parent().remove();
-      } else {
+    // Delete comment
+$("#Comments .CommentsContent").on('click', '.delete', function () {
+    // Prompt the user to enter the password
+    var enteredPassword = prompt("댓글 삭제를 위해 비밀번호를 입력하세요:");
 
-      };
-    });
+    // Get the stored password from the input field
+    var storedPassword = document.querySelector(".CommentsPw").value;
+
+    // Check if the entered password matches the stored password
+    if (enteredPassword !== null && enteredPassword === storedPassword) {
+        // Ask for confirmation before deleting the comment
+        if (confirm("댓글을 삭제하시겠습니까?")) {
+            alert("댓글이 삭제되었습니다.");
+            $(this).closest('section.con').remove(); // Remove the closest comment section
+        } else {
+            // Do nothing if the user cancels the deletion
+        }
+    } else {
+        alert("비밀번호가 일치하지 않습니다.");
+    }
+});
 
     // 댓글 달기
     let repleText = '';
@@ -229,7 +242,9 @@
 
       $('#addReple').html(repleText)
 
-      console.log(textareaContent, textareaNickName, textareaPw)
+      console.log('이름 : ',textareaNickName)
+      console.log('비번 : ',textareaPw)
+      console.log('내용 : ',textareaContent)
     });
 
 
