@@ -7,7 +7,23 @@
   <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <style>
-    
+    a {
+      text-decoration: none;   
+      color: #333;     
+      background-color: skyblue;
+      border-radius: 10px;
+      margin: 2px;
+      
+      text-align: center;    
+      width: 90%;
+      display: inline-block;
+      font-size: 1.1rem;
+    }
+    a:hover {
+      background-color: sandybrown;
+    }
+    li{
+    }
   </style>
 </head>
 <body>
@@ -17,59 +33,59 @@
     <hr class="dropdown-divider">
     
     <div class="d-flex flex-wrap">
-      <ul class="col-4 list-unstyled">
-        <li><b>Basic Component</b></li>
-        <li><a target="_blank" href="./coloring-data-attribute.html" target="_blank">data-attribute</a></li>
-        <li><a target="_blank" href="./dropdown-menu.html">dropdown-menu</a></li>
-        <li><a target="_blank" href="./filtering-data-attribute.html">filtering-data-attribute</a></li>
-        <li><a target="_blank" href="./filtering-data-manage-outerdata.html">filtering-data-manage-outerdata</a></li>
-        <li><a target="_blank" href="./header_scroll_selected_colorchange.html">header_scroll_selected_colorchange</a></li>
-        <li><a target="_blank" href="./header-calc-height.html">header-calc-height</a></li>
-        <li><a target="_blank" href="./language-select-menu.html">language-select-menu</a></li>
-        <li><a target="_blank" href="./modal.html">modal</a></li>
-        <li><a target="_blank" href="./popup-oneday-no-look.html">popup-oneday-no-look</a></li>
-        <li><a target="_blank" href="./popup-slide.html">popup-slide</a></li>
-        <li><a target="_blank" href="./quick-menu.html">quick-menu</a></li>
-        <li><a target="_blank" href="./reple.html">댓글달기</a></li>
-      </ul>
+      <div class="col-4">
+        <h3 class="text-center">Basic Component</h3>
+        <ul class="list-unstyled">
+          <li><a target="_blank" href="./coloring-data-attribute.html">데이터속성-버튼클릭시 배경색변경</a></li>
+          <li><a target="_blank" href="./dropdown-menu.html">드롭다운</a></li>
+          <li><a target="_blank" href="./filtering-data-attribute.html">데이터속성-간단 필터링</a></li>
+          <li><a target="_blank" href="./filtering-data-manage-outerdata.html">데이터속성-외부데이터로 태그생성</a></li>
+          <li><a target="_blank" href="./header_scroll_selected_colorchange.html">스크롤-위로버튼,선택메뉴 색바꾸기</a></li>
+          <li><a target="_blank" href="./header-calc-height.html">스크롤-헤더높이 자동, 스크롤시 헤더 접기</a></li>
+          <li><a target="_blank" href="./language-select-menu.html">언어선택</a></li>
+          <li><a target="_blank" href="./modal.html">모달</a></li>
+          <li><a target="_blank" href="./popup-oneday-no-look.html">팝업-하루동안안보기</a></li>
+          <li><a target="_blank" href="./popup-slide.html">팝업-슬라이드</a></li>
+          <li><a target="_blank" href="./quick-menu.html">퀵메뉴</a></li>
+          <li><a target="_blank" href="./reple.html">댓글달기</a></li>
+        </ul>
+      </div>
       
-      <ul class="col-4 list-unstyled">
-        <li><b>Slide-Swiper</b></li>
-        <li><a target="_blank" href="./Silde-swiper/bgcolor-chage-slide.html">bgcolor-chage-slide</a></li>
-        <li><a target="_blank" href="./Silde-swiper/double-slide.html">double-slide</a></li>
-        <li><a target="_blank" href="./Silde-swiper/opposite-direction-slide.html">opposite-direction-slide</a></li>
-        <li><a target="_blank" href="./Silde-swiper/slide-css-custom.html">slide-css-custom</a></li>
-        <li><a target="_blank" href="./Silde-swiper/slide-cubic.html">slide-cubic</a></li>
-        <li><a target="_blank" href="./Silde-swiper/slide-plugin-customazing.html">slide-plugin-customazing</a></li>
-        <li><a target="_blank" href="./Silde-swiper/slide-plugin.html">slide-plugin</a></li>
-        <li><a target="_blank" href="./Silde-swiper/slide-side-two-half.html">slide-side-two-half</a></li>
-        <li><a target="_blank" href="./Silde-swiper/stop-play-slide.html">stop-play-slide</a></li>
-      </ul>
-      <ul class="col-4 list-unstyled">
-        <li><b>Slide-No-Plugin</b></li>
-        <li><a target="_blank" href="./Slide-vanilla/slide-jquery-fadein.html">slide-jquery-fadein</a></li>
-        <li><a target="_blank" href="./Slide-vanilla/slide-jquery-horizontal copy 2.html">slide-jquery-horizontal-2</a></li>
-        <li><a target="_blank" href="./Slide-vanilla/slide-jquery-horizontal copy.html">slide-jquery-horizontal</a></li>
-        <li><a target="_blank" href="./Slide-vanilla/slide-jquery-vertical copy.html">slide-jquery-vertical</a></li>
-        <li><a target="_blank" href="./Slide-vanilla/slide-jquery-vertical-2 copy.html">slide-jquery-vertical-2</a></li>
-      </ul>
+      <div class="col-4">
+        <h3 class="text-center">Slide-Swiper</h3>
+        <ul class="list-unstyled">
+          <li><a target="_blank" href="./Silde-swiper/bgcolor-chage-slide.html">슬라이드변경시 색변경</a></li>
+          <li><a target="_blank" href="./Silde-swiper/double-slide.html">원버튼 이중 슬라이드</a></li>
+          <li><a target="_blank" href="./Silde-swiper/opposite-direction-slide.html">각각 양쪽방향으로 슬라이드</a></li>
+          <li><a target="_blank" href="./Silde-swiper/slide-css-custom.html">스와이퍼 CSS 커스텀</a></li>
+          <li><a target="_blank" href="./Silde-swiper/slide-cubic.html">주사위 슬라이드</a></li>
+          <li><a target="_blank" href="./Silde-swiper/slide-plugin-customazing.html">스와이퍼 변수값만 바꿔서 커스텀마이징</a></li>
+          <li><a target="_blank" href="./Silde-swiper/slide-plugin.html">스와이퍼 변수값만 바꿔서 커스텀마이징-2</a></li>
+          <li><a target="_blank" href="./Silde-swiper/slide-side-two-half.html">양쪽에 반개씩 보이는 슬라이드</a></li>
+          <li><a target="_blank" href="./Silde-swiper/stop-play-slide.html">stop-play 버튼있는 슬라이드</a></li>
+        </ul>
+      </div>
+      <div class="col-4">
+        <h3 class="text-center">Slide-No-Plugin</h3>
+        <ul class="list-unstyled">
+          <li><a target="_blank" href="./Slide-vanilla/slide-jquery-fadein.html">slide-jquery-fadein</a></li>
+          <li><a target="_blank" href="./Slide-vanilla/slide-jquery-horizontal copy 2.html">slide-jquery-horizontal-2</a></li>
+          <li><a target="_blank" href="./Slide-vanilla/slide-jquery-horizontal copy.html">slide-jquery-horizontal</a></li>
+          <li><a target="_blank" href="./Slide-vanilla/slide-jquery-vertical copy.html">slide-jquery-vertical</a></li>
+          <li><a target="_blank" href="./Slide-vanilla/slide-jquery-vertical-2 copy.html">slide-jquery-vertical-2</a></li>
+        </ul>
+      </div>
     </div>
     <hr>
     
     <div class="d-flex flex-wrap">
-      <ul class="col-4 list-unstyled">
-        <li><b>Bootstrap</b></li>
-        <li><a target="_blank" href="./bootstrap/spyscroll.html">spyscroll</a></li>
-      </ul>
-      
-      <ul class="col-4 list-unstyled">
-        <li><b></b></li>
-        <li><a target="_blank" href=""></a></li>
-      </ul>
-      <ul class="col-4 list-unstyled">
-        <li><b></b></li>
-        <li><a target="_blank" href=""></a></li>
-      </ul>
+      <div class="col-4">
+        <h3 class="text-center">Bootstrap</h3>
+        <ul class="list-unstyled">
+          <li><a target="_blank" href="./bootstrap/spyscroll.html">spyscroll</a></li>
+        </ul>
+        
+      </div>
     </div>
   </div>
 </body>
