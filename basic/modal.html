@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modal Menu</title>
+  <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(function() {
+      // 모달메뉴열기
+      $(".modal-btn").click(function() { 
+        $("body").addClass("dark-box");
+        // 여기서 this는 ".modal-btn"
+        // $(this).data('target') 자체가 .menu-1, .menu-2가 된다 !
+        $($(this).data('target')).addClass("showdiv")
+      })
+      // 모달메뉴 닫기
+      $(".close-btn").click(function() {  
+        $("body").removeClass("dark-box");
+        $(".modal-box").removeClass("showdiv");
+      })
+    })
+  </script>
+  <style>
+    *{padding: 0;margin: 0;}
+
+    .box{
+      width: 300px;
+      height: 400px;
+      border: 1px solid salmon;
+      background-color: white;
+    }
+    
+    .modal-box{
+      display: none;
+      position: fixed;
+      top: 50%;      
+      left: 50%;
+      transform: translate(-50%, -50%);         
+    }
+    body:before{
+      content: "";
+      position: fixed;           
+      background-color: #333;
+      opacity: .5;
+      width: 100%;
+      height: 100%;
+      display: none;
+    }
+    .dark-box:before{
+      display: block;
+    }
+
+    .showdiv{
+      display: block !important;
+    }
+
+  </style>
+</head>
+<body >
+
+  <button class="modal-btn" data-target=".menu-1">모달 버튼1</button>
+
+  <div class="box modal-box menu-1">
+    <button class="close-btn">X</button>
+    <p>모달1</p>
+  </div>
+  <hr>
+
+  <button class="modal-btn" data-target=".menu-2">모달 버튼2</button>
+
+  <div class="box modal-box menu-2">
+    <button class="close-btn">X</button>
+    <p>모달2</p>
+  </div>
+  <hr>
+  
+</body>
+</html>

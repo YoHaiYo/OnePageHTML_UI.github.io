@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>헤더-호버시 소메뉴 전체나오기</title>
+  <link rel="stylesheet" href="./css/web.css">
+  <style>
+    /* RESET */
+*{padding: 0;margin: 0; color: #333;}
+li{list-style: none;}
+a{text-decoration: none;}
+a:hover{color: red;}
+/* COMMON */
+.container{max-width: 1200px; margin: 0 auto;}
+.rel{position: relative;}
+.abs{position: absolute;}
+.d-flex{display: flex;}
+.d-block{display: block;}
+.jcb{justify-content: space-between;}
+.aic{align-items: center;}
+.aie{align-items: end;}
+.ofh{overflow: hidden;}
+.h-0{height: 0;}
+.h-100px{height: 100px;}
+.h-200px{height: 200px;}
+.h-300px{height: 300px;}
+.z-1{z-index: 1;}
+.z-2{z-index: 2;}
+.z-3{z-index: 3;}
+.w-100{width: 100%;}
+.mx-auto{margin: 0 auto;}
+.text-center{text-align: center;}
+.bg-check{background-color: gray;} /*레이아웃 체크용*/
+.bg-blue{background-color: blue;} /*레이아웃 체크용*/
+
+/* Layout */
+#gnb::before{ 
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  background-color: skyblue;
+  height: 0px;
+  transition: .5s;
+}
+#gnb:hover::before{
+  height: 150px;
+}
+#gnb:hover .d2ul{
+  height: 150px;
+}
+
+#gnb .d1li:hover{
+  background-color: skyblue;
+}
+
+.d1a{
+  line-height: 100%;
+  font-size: 1.8rem;
+  padding: 0 2rem;  
+}
+
+.d2ul{
+  top: 100%;
+  min-width: 110px;
+  height: 0;
+  overflow: hidden;
+  transition: .5s;
+}
+
+#gnb .d2ul li:hover{
+  background-color: slateblue;
+}
+
+  </style>
+</head>
+<body>  
+  <header id="hd" class="bg-check">
+    <div class="container d-flex jcb rel h-100px">      
+        <h1 class="d-flex aic">
+          <a href=""><img src="" alt="">LOGO</a>
+        </h1>
+      <ul id="gnb" class="d-flex aie">
+        <!-- li.rel.d1li*4>a.d1a{MENU-$}+ul.abs.d2ul>li*4>a{SubMENU-$} -->
+        <li class="rel d1li">
+          <a href="" class="d1a">MENU-1</a>
+          <ul class="abs d2ul w-100 text-center">
+            <li><a href="">SubMENU-1</a></li>
+            <li><a href="">SubMENU-2</a></li>
+            <li><a href="">SubMENU-3</a></li>
+            <li><a href="">SubMENU-4</a></li>
+            <li><a href="">SubMENU-5</a></li>
+          </ul>
+        </li>
+        <li class="rel d1li">
+          <a href="" class="d1a">MENU-2</a>
+          <ul class="abs d2ul w-100 text-center">
+            <li><a href="">SubMENU-1</a></li>
+            <li><a href="">SubMENU-2</a></li>
+            <li><a href="">SubMENU-3</a></li>
+          </ul>
+        </li>
+        <li class="rel d1li">
+          <a href="" class="d1a">MENU-3</a>
+          <ul class="abs d2ul w-100 text-center">
+            <li><a href="">SubMENU-1</a></li>
+            <li><a href="">SubMENU-2</a></li>
+            <li><a href="">SubMENU-3</a></li>
+            <li><a href="">SubMENU-4</a></li>
+          </ul>
+        </li>
+        <li class="rel d1li">
+          <a href="" class="d1a">MENU-4</a>
+          <ul class="abs d2ul w-100 text-center">
+            <li><a href="">SubMENU-1</a></li>
+            <li><a href="">SubMENU-2</a></li>
+            <li><a href="">SubMENU-3</a></li>
+            <li><a href="">SubMENU-4</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </header>
+</body>
+</html>
