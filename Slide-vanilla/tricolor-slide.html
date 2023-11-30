@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tricolor Silde</title>
+  <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: blue;
+    }
+
+    a:hover {
+      color: red;
+    }
+
+    .color1 {
+      background-color: yellow;
+    }
+    .color2 {
+      background-color: black;
+    }
+    .color3 {
+      background-color: red;
+    }
+
+    .tricolor-slide a {
+      z-index: 10000;
+      display: flex;
+      height: 100%;
+      /* rel에 %가 먹히는 순간은 엄마 높이가 지정되어있으면 됨 */
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      font-size: 200px;
+      line-height: 30px;
+
+    }
+
+    .tricolor{
+      width: 1200px;
+      height: 200px;
+      margin: 0 auto;
+    }
+    .tricolor.fade .tricolor-slide{
+      position: absolute;
+      width: 1200px;
+      height: 200px;
+    }
+    .tricolor-silde{
+      width: 1200px;
+      height: 200px;
+    }
+    .tricolor-wrapper {
+      width: 3600px;
+    }
+    .tricolor.fade .tricolor-wrapper{
+      position: relative;
+    }
+    .tricolor.fade .tricolor-slide {
+      opacity: 0;
+      transition: 0.5s;
+    }
+    .tricolor.fade .tricolor-slide.on {
+      opacity: 1;
+      z-index: 9;
+    }
+    .tricolor.vertical {
+      overflow: hidden;
+    }
+    .tricolor.horizontal {
+      overflow: hidden;
+    }
+    .tricolor.horizontal .tricolor-wrapper{
+      display: flex;
+    }
+
+
+  </style>
+</head>
+
+<body>
+  <div class="tricolor tricolor-first vertical">
+    <div class="tricolor-wrapper">
+      <div class="tricolor-silde color2"></div>
+      <div class="tricolor-silde color1"></div>
+      <div class="tricolor-silde color3"></div>
+    </div>
+  </div>
+
+  <div class="tricolor tricolor-second fade ">
+    <div class="tricolor-wrapper">
+      <div class="tricolor-slide on color1">
+        <a href="http://www.naver.com" target="_blank">Naver</a>
+      </div>
+      <div class="tricolor-slide color2">
+        <a href="http://www.daum.net" target="_blank">Daum</a>
+      </div>
+      <div class="tricolor-slide color3">
+        <a href="http://www.google.com" target="_blank">Google</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="tricolor tricolor-third horizontal">
+    <div class="tricolor-wrapper">
+      <div class="tricolor-silde color3"></div>
+      <div class="tricolor-silde color2"></div>
+      <div class="tricolor-silde color1"></div>
+    </div>
+  </div>
+  
+  <script>
+    $(document).ready(function () {
+
+      function verticalSilde(selectTag, moveUnit) {
+        $(`${selectTag} .tricolor-wrapper`).animate({
+          "marginTop": -moveUnit
+        }, 300, function () {
+          $(`${selectTag} .tricolor-silde`).eq(0).appendTo($(`${selectTag} .tricolor-wrapper`))
+          $(`${selectTag} .tricolor-wrapper`).css("marginTop", 0)
+        })
+      }
+
+      var count = 0;
+      function fadeSilde(selectTag) {
+        count++;
+        count %= $(`${selectTag} .tricolor-slide`).length;
+        $(`${selectTag} .tricolor-slide`).eq(count).addClass("on").siblings().removeClass("on")
+      }
+
+
+      function horizontalSilde(selectTag, moveUnit) {
+        $(`${selectTag} .tricolor-wrapper`).animate({
+          "marginLeft": -moveUnit
+        }, 300, function () {
+          $(`${selectTag} .tricolor-silde`).eq(0).appendTo($(`${selectTag} .tricolor-wrapper`))
+          $(`${selectTag} .tricolor-wrapper`).css("marginLeft", 0)
+        })
+      }     
+      
+
+      /// tricolor-slide Manger
+      setInterval(function() {
+        verticalSilde('.tricolor-first',200)
+      }, 1500)
+
+      setInterval(function() {
+        fadeSilde('.tricolor-second')
+      }, 2500)
+
+      setInterval(function() {
+        horizontalSilde('.tricolor-third',1200)
+      }, 2000)
+
+      /* $('.tricolor-slide').eq(0).css('backgroundColor','red')
+      $('.tricolor-slide').eq(1).css('backgroundColor','white')
+      $('.tricolor-slide').eq(2).css('backgroundColor','blue') */
+
+    })
+  </script>
+</body>
+
+</html>
