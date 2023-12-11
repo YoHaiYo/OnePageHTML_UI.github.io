@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>부트스트랩-네비바_2depth</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    /* lg : 992px */
+    @media (min-width:992px) {
+      #gnb:hover ul{
+        height: 100px;
+      }
+      #gnb ul {
+        height: 0;
+        overflow: hidden;
+        transition: .5s;
+      }
+    }
+    #gnb ul {
+        height: 0;
+        overflow: hidden;
+        transition: .5s;
+    }
+    #gnb .nav-item:hover ul{
+        height: 100px;
+      }
+
+    #gnb ul a {
+      color: #333;
+    }
+
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand" href="#">사이트로고</a>
+    <!-- 햄버거바 -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav justify-content-between w-100" id="gnb">
+        <li class="nav-item ">
+          <a class="nav-link" href="#">홈</a>
+          <ul class="navbar-nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="#">하위메뉴1</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">하위메뉴2</a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">서비스</a>
+          <ul class="navbar-nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="#">하위메뉴1</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">하위메뉴2</a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">포트폴리오</a>
+          <ul class="navbar-nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="#">하위메뉴1</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">하위메뉴2</a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">QnA</a>
+          <ul class="navbar-nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="#">하위메뉴1</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">하위메뉴2</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
