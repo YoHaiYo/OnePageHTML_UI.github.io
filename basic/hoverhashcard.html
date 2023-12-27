@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>호버됬을때 해쉬태그나오면서 이펙트주기</title>
+  <style>
+    .swiper-wrapper {
+      display: flex;
+    }
+    .swiper-slide {
+      margin: 5px;
+      position: relative;
+    }
+    .swiper-slide a{
+      display: block;
+      /* height: 100px;
+      width: 100px; */
+      height: 0;
+      padding-top: 133.39%;
+      background-size: cover;
+      border-radius: 5%;
+      list-style: none;
+      text-decoration: none;
+    }
+    .swiper-slide a::before{
+      content: "";
+      display: block;
+      position: absolute;
+      left:0; right:0; top:0; bottom:0;
+      background-color: transparent;
+      transition: 0.5s;
+      border-radius: 5%;
+    }
+    .swiper-slide:hover a:before{
+    background-color: rgba(0,0,0,.5);  
+    }
+    .swiper-slide .pickbox {
+      opacity: 0;      
+      display: block;
+      transform: translateY(-50px);
+      transition: 0.5s;
+      color: #fff;
+    }
+    .swiper-slide:hover .pickbox {
+      opacity: 1;
+      transform: translateY(-200px);
+    }
+  </style>
+</head>
+<body>
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <a href="" style="background-image: url(../img/cheongju01.jpg);">
+          <span class="pickbox">
+            <strong class="picktitle">구름을 벗삼아</strong>
+            <span class="hashtag">#부드러운 #고급막걸리</span>
+          </span>                   
+        </a>       
+      </div>
+      <div class="swiper-slide">
+        <a href="" style="background-image: url(../img/cheongju02.jpg);">
+          <span class="pickbox">
+            <strong class="picktitle">구름을 벗삼아</strong>
+            <span class="hashtag">#부드러운 #고급막걸리</span>
+          </span>                   
+        </a>       
+      </div>
+      <div class="swiper-slide">
+        <a href="" style="background-image: url(../img/cheongju03.jpg);">
+          <span class="pickbox">
+            <strong class="picktitle">구름을 벗삼아</strong>
+            <span class="hashtag">#부드러운 #고급막걸리</span>
+          </span>                   
+        </a>       
+      </div>
+
+    </div>
+  </div>
+</div>
+</body>
+</html>
