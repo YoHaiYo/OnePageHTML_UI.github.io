@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>네비바 햄버거바</title>
+  <style>
+    /* 반응형처리 */
+    .navbar_burger {
+      display: none;
+    }
+
+    @media (max-width: 992px) {
+      #nav-pc {
+        display: none;
+      }
+
+      .navbar_burger {
+        display: block;
+      }
+    }
+
+    /* PC 버전 */
+    .navbar_main {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      color: #000;
+      z-index: 999;
+      animation: navbarBottom 1s forwards;
+    }
+
+    .navbar_links {
+      margin-right: 10%;
+    }
+
+    .navbar_links a {
+      text-decoration: none;
+      color: #000;
+      margin-right: 4rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      position: relative;
+      padding: 0.5rem 0;
+    }
+
+    .navbar_links a:last-child {
+      margin-right: 0;
+    }
+
+    .navbar_links a::before {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 50%;
+      width: 0;
+      height: 3px;
+      background-color: #792626;
+      transition: width 0.2s ease-in-out, left 0.2s ease-in-out;
+    }
+
+    .navbar_links a:hover::before {
+      width: 100%;
+      left: 0;
+    }
+
+    .navbar_logo {
+      margin-left: 10%;
+      text-decoration: none;
+      color: #000;
+      font-size: 2.3rem;
+      font-weight: 500;
+    }
+
+    .navbar_scroll {
+      background-color: #fff;
+      z-index: 5;
+      border-bottom: 1px solid gray;
+    }
+
+    .navbar_scroll div a {
+      color: black;
+    }
+
+    .navbar_scroll a {
+      color: black;
+    }
+
+    @keyframes navbarBottom {
+      0% {
+        transform: translateY(-70%);
+        opacity: 0;
+      }
+
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    /* mobile */
+    .navbar_overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 998;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.1s ease;
+    }
+
+    .navbar_burger {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      cursor: pointer;
+      color: #000;
+    }
+
+    .navbar_burger_back {
+      position: fixed;
+      top: 1.5rem;
+      right: 1.5rem;
+      cursor: pointer;
+      color: #fff;
+    }
+
+    .navbar_menu {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 100%;
+      background-color: #0e0e0e;
+      padding: 0 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      transform: translateX(100%);
+      z-index: 999;
+      color: #000;
+      transition: transform 0.3s ease;
+    }
+
+    .navbar_menu a {
+      position: relative;
+      color: #ffffff;
+      font-size: 1.5rem;
+      margin-left: 1rem;
+      margin-bottom: 3rem;
+      text-decoration: none;
+    }
+
+    .navbar_menu.active {
+      transform: translateX(0);
+    }
+
+    .navbar_overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- PC 버전 -->
+  <div id="nav-pc" class="navbar_main">
+    <a class="navbar_logo" href="#">로고</a>
+    <div class="navbar_links">
+      <a href="#">ABOUT</a>
+      <a href="#">WORKS</a>
+      <a href="#">NEWS</a>
+      <a href="#">CONTACT</a>
+    </div>
+  </div>
+
+  <!-- 모바일버전 -->
+  <div id="nav-mo" class="navbar_overlay"></div>
+
+  <div class="navbar_burger">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-list"
+      viewBox="0 0 16 16">
+      <path fill-rule="evenodd"
+        d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+    </svg>
+  </div>
+
+  <div class="navbar_menu">
+    <a href="#">ABOUT</a>
+    <a href="#">WORKS</a>
+    <a href="#">NEWS</a>
+    <a href="#">CONTACT</a>
+    <div class="navbar_burger_back">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-x-lg"
+        viewBox="0 0 16 16">
+        <path
+          d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+      </svg>
+    </div>
+  </div>
+
+  <script>
+    const navbarBurger = document.querySelector('.navbar_burger');
+    const navbarburgerback = document.querySelector('.navbar_burger_back');
+    const navbarMenu = document.querySelector('.navbar_menu');
+    const navbarOverlay = document.querySelector('.navbar_overlay');
+
+    navbarBurger.addEventListener('click', () => {
+      navbarMenu.classList.toggle('active');
+      navbarOverlay.classList.toggle('active');
+    });
+
+    navbarburgerback.addEventListener('click', () => {
+      navbarMenu.classList.remove('active');
+      navbarOverlay.classList.remove('active');
+    });
+
+    navbarOverlay.addEventListener('click', () => {
+      navbarMenu.classList.remove('active');
+      navbarOverlay.classList.remove('active');
+    });
+  </script>
+</body>
+
+</html>
