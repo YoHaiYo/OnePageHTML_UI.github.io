@@ -25,7 +25,10 @@
       color: #333;
     }
 
-    li {}
+    li {
+      text-wrap: nowrap;
+
+    }
   </style>
 </head>
 
@@ -38,7 +41,7 @@
     <div class="d-flex flex-wrap">
       <div class="col-4">
         <h3 class="text-center">Basic</h3>
-        <ul class="contentlist basic list-unstyled">
+        <ul class="contentlist basic list-unstyled mx-3">
           <li class="my-2">
             <span class="h6">데이터속성-버튼클릭시
               배경색변경</span>
@@ -76,7 +79,7 @@
 
       <div class="col-4">
         <h3 class="text-center">Slide-Swiper</h3>
-        <ul class="contentlist Slide-Swiper list-unstyled">
+        <ul class="contentlist Slide-Swiper list-unstyled mx-3">
           <li><a class="btn btn-outline-primary" target="_self" href="./Silde-swiper/bgcolor-chage-slide.html">슬라이드변경시
               색변경</a></li>
           <li><a class="btn btn-outline-primary" target="_self" href="./Silde-swiper/double-slide.html">원버튼 이중 슬라이드</a>
@@ -171,6 +174,67 @@
             filetitle: "데이터속성으로 초간단 필터링",
             starnum: "1"
           },
+          {
+            filenm: "filtering-data-manage-outerdata",
+            filetitle: "데이터속성을 활용한 외부데이터로 태그생성",
+            starnum: "0"
+          },
+          {
+            filenm: "header-calc-height",
+            filetitle: "height()로 헤더높이 자동, 스크롤시 헤더 접기",
+            starnum: "0"
+          },
+          {
+            filenm: "header_hover_all_menu",
+            filetitle: "헤더-호버시 소메뉴 전체나오기",
+            starnum: "0"
+          },
+          {
+            filenm: "header_hover_one_menu",
+            filetitle: "헤더-호버시 소메뉴 하나 나오기",
+            starnum: "0"
+          },
+          {
+            filenm: "header_scroll_selected_colorchange",
+            filetitle: "헤더스크롤,위로버튼,선택메뉴 색바꾸기",
+            starnum: "0"
+          },
+          {
+            filenm: "hoverhashcard",
+            filetitle: "호버됬을때 해쉬태그나오면서 이펙트주기",
+            starnum: "0"
+          },
+          {
+            filenm: "language-select-menu",
+            filetitle: "언어선택 배열연습",
+            starnum: "0"
+          },
+          {
+            filenm: "modal",
+            filetitle: "Modal 기능",
+            starnum: "0"
+          },
+          {
+            filenm: "popup-oneday-no-look",
+            filetitle: "팝업-하루동안-보지않기",
+            starnum: "1"
+          },
+          {
+            filenm: "popup-slide",
+            filetitle: "팝업슬라이드",
+            starnum: "0"
+          },
+          {
+            filenm: "quick-menu",
+            filetitle: "퀵메뉴",
+            starnum: "0"
+          },
+          {
+            filenm: "reple",
+            filetitle: "댓글달기",
+            starnum: "0"
+          },
+
         ]
       },
       {
@@ -206,6 +270,7 @@
       let tagmaker = '';
       for (x in filepath[foldernum].fileinfo)
         tagmaker += `
+      
     <li class="my-2">
             <span class="h6">${Number(x) + 1}. ${starmaker(filepath[foldernum].fileinfo[x].starnum)} ${filepath[foldernum].fileinfo[x].filetitle}</span>
             <div class="d-flex">
@@ -221,6 +286,7 @@
 
     }
     listmaker(0, ".contentlist.basic")
+    listmaker(1, ".contentlist.Slide-Swiper")
     // listmaker(1, ".contentlist.Silde-swiper")
 
   </script>
