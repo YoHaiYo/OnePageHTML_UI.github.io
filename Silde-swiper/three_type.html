@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>★SWIPER 커스텀 3종 세트</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <style>
+    .swiper .mybtn {
+      width: auto;
+      height: auto;
+      background-color: transparent;
+      opacity: 1;
+      transition: 0.5s;
+      position: relative;
+      color: white;
+      font-size: 1.5rem;
+      margin: 0 0.5rem;
+    }
+
+    .swiper .mybtn:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background-color: white;
+      transition: 0.5s;
+    }
+
+    .swiper .mybtn.swiper-pagination-bullet-active:after {
+
+      width: 100%;
+
+    }
+
+    #mainSwiper .swiper-slide {
+      max-height: 600px;
+      height: 80vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 80px;
+      background-color: gray;
+    }
+
+    #adSwiper {
+      display: flex;
+    }
+
+    #adSwiper .swiper {
+      width: 50%;
+      height: 200px;
+      /*높이가 고정화되면 수직작업이 가능함*/
+    }
+
+    #adSwiper .swiper-slide {
+      height: 200px;
+      /*높이가 고정화되면 수직작업이 가능함*/
+      background-color: aquamarine;
+
+    }
+
+    #adSwiper .sales .swiper-slide {
+      background-color: yellow;
+    }
+  </style>
+</head>
+
+<body>
+  <section id="mainSwiper">
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" data-adtext="리액트">Slide 1</div>
+        <div class="swiper-slide" data-adtext="노드SQL">Slide 2</div>
+        <div class="swiper-slide" data-adtext="CMS">Slide 3</div>
+        <div class="swiper-slide" data-adtext="피그마">Slide 4</div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+  <section id="adSwiper">
+    <div class="swiper sales">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide">Slide 2</div>
+      </div>
+      <div class="swiper-scrollbar"></div>
+    </div>
+    <div class="swiper newSwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" data-bg="#000">Slide 1</div>
+        <div class="swiper-slide" data-bg="#ff0000">Slide 2</div>
+        <div class="swiper-slide" data-bg="#ffff00">Slide 3</div>
+        <div class="swiper-slide" data-bg="#00ff00">Slide 3</div>
+        <div class="swiper-slide" data-bg="#fffff0">Slide 3</div>
+        <div class="swiper-slide" data-bg="#0000ff">Slide 3</div>
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </section>
+  <script>
+    //클래스생성자
+    // const mainswiper = new Swiper('#mainSwiper .swiper', { 
+    //   loop: true,
+    //   pagination: {
+    //         el: "#mainSwiper .swiper-pagination",
+    //         clickable: true,
+    //         renderBullet: function (index, className) {
+    //           return `<span class="${className}  mybtn  mybtn${index} ">${index + 1}</span>`;
+    //         },
+    //   }  
+    // });
+
+    let mainbtnArr = [];
+
+
+    document.querySelectorAll("#mainSwiper .swiper-slide").forEach((el, idx) => {
+      console.log(el.dataset)
+      mainbtnArr.push(el.dataset.adtext); //데이터완공
+    })
+    document.querySelectorAll(".newSwiper .swiper-slide").forEach((el, idx) => {
+      el.style.backgroundColor = el.dataset.bg;
+    })
+
+    const mainswiper = new Swiper('#mainSwiper .swiper', {
+      loop: true,
+      autoplay: {
+        delay: 1000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: "#mainSwiper .swiper-pagination",
+        clickable: true,
+        renderBullet: function (index, className) {
+          return `<span class="${className}  mybtn  mybtn${index} ">${mainbtnArr[index]}</span>`;
+        },
+      }
+    });
+
+    const salesswiper = new Swiper('#adSwiper .swiper.sales', {
+      loop: true,
+      direction: "vertical",
+      scrollbar: {
+        el: '#adSwiper .swiper.sales .swiper-scrollbar',
+      },
+    });
+
+    const newswiper = new Swiper('#adSwiper .newSwiper.swiper', {
+      loop: true,
+      effect: "fade",
+      pagination: {
+        el: '#adSwiper .newSwiper.swiper .swiper-pagination',
+      },
+      navigation: {
+        nextEl: '#adSwiper .newSwiper.swiper .swiper-button-next',
+        prevEl: '#adSwiper .newSwiper.swiper .swiper-button-prev',
+      },
+      autoplay: {
+        delay: 1000,
+        disableOnInteraction: false,
+      },
+    });
+
+
+
+  </script>
+</body>
+
+</html>
