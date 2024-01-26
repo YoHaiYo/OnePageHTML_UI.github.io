@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>★스와이퍼 블렛 커스텀</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <style>
+    #mainSwiper .swiper-slide {
+      max-height: 600px;
+      height: 80vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 80px;
+      background-color: slateblue;
+    }
+
+    #adSwiper {
+      display: flex;
+    }
+
+    #adSwiper .swiper {
+      width: 50%;
+    }
+
+    #adSwiper .swiper-slide {
+      height: 350px;
+      background-color: aqua;
+    }
+
+    #adSwiper .sales .swiper-slide {
+      background-color: whitesmoke;
+    }
+
+    .swiper .mybtn {
+      color: #fff;
+      width: auto;
+      height: auto;
+      padding: .5rem;
+      border-radius: 30px;
+      border: 2px solid darkblue;
+      /* font-size: 0;
+      line-height: 0; */
+      background-color: transparent;
+      opacity: 1;
+      transition: .5s;
+    }
+
+    #mainSwiper .swiper-pagination-bullet-active {
+      width: 3rem;
+      background-color: darkblue;
+    }
+  </style>
+</head>
+
+<body>
+  <h3><a target="_blank" href="https://codesandbox.io/p/sandbox/ypjthk?file=%2Findex.html%3A90%2C5-96%2C9">스와이퍼 커스텀
+      참고링크</a></h3>
+  <h3>※주의 : 스와이퍼는 동적객체로 만들면 고장남! </h3>
+
+  <section id="mainSwiper">
+    <!-- <h3>mainSwiper</h3> -->
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <!-- swiper-slide는 동적객체로 못만듬. 페이지네이션 등 짝이 안맞아서 안돌아감. -->
+        <div class="swiper-slide" data-adtext="리액트">Slide 1</div>
+        <div class="swiper-slide" data-adtext="노드">Slide 2</div>
+        <div class="swiper-slide" data-adtext="JS">Slide 3</div>
+        <div class="swiper-slide" data-adtext="Vue.js">Slide 4</div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
+  <section id="adSwiper">
+    <!-- <h3>adSwiper</h3> -->
+
+    <div class="swiper sales">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide">Slide 2</div>
+      </div>
+      <div class="swiper-scrollbar"></div>
+    </div>
+
+    <div class="swiper newbrand">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide">Slide 2</div>
+        <div class="swiper-slide">Slide 3</div>
+        <div class="swiper-slide">Slide 4</div>
+        <div class="swiper-slide">Slide 5</div>
+        <div class="swiper-slide">Slide 6</div>
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+
+  </section>
+  <script>
+    let mainbtnArr = [];
+
+    document.querySelectorAll("#mainSwiper .swiper-slide").forEach((el, idx) => {
+      // console.log(el, idx, el.dataset)
+      mainbtnArr.push(el.dataset.adtext)
+      console.log(mainbtnArr)
+    })
+
+    // 클래스 생성자
+    const mainSwiper = new Swiper('#mainSwiper .swiper', {
+      loop: false,
+
+      pagination: {
+        el: "#mainSwiper .swiper-pagination",
+        clickable: true,
+        renderBullet: function (index, className) { // 여기서 className 고치면 고장남..! 동적객체로 클래스명 들어오는거 다 여기로 모임
+
+          // 이 부분이 bullet 클래스 들어오는 부분.
+          // ★여기에 내 클래스명을 줘서 컨트롤 하기 쉽게 만들 수 있다.
+          // 참고 : https://codesandbox.io/p/sandbox/ypjthk?file=%2Findex.html%3A90%2C5-96%2C9
+          return `<span class='${className} mybtn mybtn${index}'>` + `${mainbtnArr[index]}` + `</span>`;
+
+        },
+      },
+
+      navigation: {
+        nextEl: '#mainSwiper .swiper-button-next',
+        prevEl: '#mainSwiper .swiper-button-prev',
+      },
+
+      scrollbar: {
+        el: '#mainSwiper .swiper-scrollbar',
+      },
+      centeredSlides: true,
+      autoplay: {
+        delay: 2000,
+        disableOnInteraction: false,
+      },
+    });
+    // console.log(mainSwiper, mainSwiper2)
+
+    /* const adSwiper = new Swiper('#adSwiper .swiper.sales', {
+      loop: false,
+
+      pagination: {
+        el: '#adSwiper .swiper.sales .swiper-pagination',
+      },
+
+      navigation: {
+        nextEl: '#adSwiper .swiper.sales .swiper-button-next',
+        prevEl: '#adSwiper .swiper.sales .swiper-button-prev',
+      },
+
+      scrollbar: {
+        el: '#adSwiper .swiper.sales .swiper-scrollbar',
+      },
+    }); */
+    function swipermaker(mainselect, subselect) {
+      // new + 대문자 : 클래스 생성자
+      return new Swiper(`${mainselect} .swiper${subselect}`, {
+        loop: false,
+
+        pagination: {
+          el: `${mainselect} ${subselect} .swiper-pagination`,
+        },
+
+        navigation: {
+          nextEl: `${mainselect} .swiper${subselect} .swiper-button-next`,
+          prevEl: `${mainselect} .swiper${subselect} .swiper-button-prev`,
+        },
+
+        scrollbar: {
+          el: `${mainselect} .swiper${subselect} .swiper-scrollbar`,
+        },
+      })
+    }
+
+    // const mainSwiper = swipermaker('#mainSwiper', '')
+    const sales = swipermaker('#adSwiper', '.sales')
+    const newbrand = swipermaker('#adSwiper', '.newbrand')
+
+    /* console.log(mainSwiper)
+    console.log(sales)
+    console.log(newbrand) */
+  </script>
+</body>
+
+</html>
