@@ -28,28 +28,8 @@ const filepath = [
         starnum: "0"
       },
       {
-        filenm: "header-calc-height",
-        filetitle: "height()로 헤더높이 자동, 스크롤시 헤더 접기",
-        starnum: "0"
-      },
-      {
-        filenm: "header_hover_all_menu",
-        filetitle: "헤더-호버시 소메뉴 전체나오기",
-        starnum: "0"
-      },
-      {
-        filenm: "header_hover_one_menu",
-        filetitle: "헤더-호버시 소메뉴 하나 나오기",
-        starnum: "0"
-      },
-      {
-        filenm: "header_scroll_selected_colorchange",
-        filetitle: "헤더스크롤,위로버튼,선택메뉴 색바꾸기",
-        starnum: "0"
-      },
-      {
         filenm: "hoverhashcard",
-        filetitle: "호버됬을때 해쉬태그나오면서 이펙트주기",
+        filetitle: "카드이펙트-호버시 해쉬태그",
         starnum: "0"
       },
       {
@@ -150,7 +130,7 @@ const filepath = [
     fileinfo: [      
       {
         filenm: "basic",
-        filetitle: "기본 네비바",
+        filetitle: "기본 반응형 네비바",
         starnum: "1"
       },
       {
@@ -158,6 +138,28 @@ const filepath = [
         filetitle: "부트5-네비바-2depth",
         starnum: "0"
       },
+      // 
+      {
+        filenm: "header-calc-height",
+        filetitle: "height()로 헤더높이 자동, 스크롤시 헤더 접기",
+        starnum: "0"
+      },
+      {
+        filenm: "header_hover_all_menu",
+        filetitle: "헤더-호버시 소메뉴 전체나오기",
+        starnum: "0"
+      },
+      {
+        filenm: "header_hover_one_menu",
+        filetitle: "헤더-호버시 소메뉴 하나 나오기",
+        starnum: "0"
+      },
+      {
+        filenm: "header_scroll_selected_colorchange",
+        filetitle: "헤더스크롤,위로버튼,선택메뉴 색바꾸기",
+        starnum: "0"
+      },
+      // 
     ]
   },
   {
