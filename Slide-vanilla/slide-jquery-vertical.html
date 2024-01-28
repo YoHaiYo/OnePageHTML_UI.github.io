@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>수직 자동 슬라이드</title>
+  <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+  <style>
+    .container {
+      width: 1200px;
+      margin: 0 auto;
+    }
+    .d-flex{
+      display: flex;
+    }
+    .h300 {
+      height: 300px;
+    }
+    .ofh {
+      overflow: hidden;
+    }
+    .swiper-slide .content{
+      width: 1200px;
+      height: 300px;
+      border: 1px solid #333;
+      text-align: center;
+      font-size: 2rem;
+      box-sizing: border-box;
+    }
+    
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div id="swiper" class="h300 ofh">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="content">Silde-1.jpg(1200px*300px)</div>
+        </div>
+        <div class="swiper-slide">
+          <div class="content">Silde-2.jpg(1200px*300px)</div>
+        </div>
+        <div class="swiper-slide">
+          <div class="content">Silde-3.jpg(1200px*300px)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+		// 사용 메서드 : setInterval, animate, css, appendTo
+      // setInterval(function() {},3000)
+      // $('태그').animate({'',''}, speed, function(){})
+      // $('태그').css({'스타일','스타일값'})
+      // $('옮길태그').appendTo($(부모가될태그))
+
+    // 수직 자동 슬라이드
+    $(document).ready(function () {
+
+      setInterval(function () {
+        $('.swiper-wrapper')
+          // animate({CSS속성정의},시간,애니메이션이 끝나고 나서 실행될함수)
+          .animate({"marginTop": -300 }, 400, function () {
+            // 여기서 this = .swiper-wrapper        
+            $(".swiper-slide:first-child", this) // this 안에 div:first-child를 잡는다는뜻 !! 제이쿼리만의 편리한 선택자.
+              .appendTo($(this)) //.appendTo : 마지막으로 보내기!    
+
+            $(this).css({
+              "marginTop": 0
+            })
+          })
+      }, 3000) // setInterval: 3초마다 실행
+    })
+  </script>
+</body>
+</html>

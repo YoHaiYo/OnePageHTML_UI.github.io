@@ -10,6 +10,15 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <style>
+    @font-face {
+      font-family: 'Pretendard-Regular';
+      src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+      font-weight: 400;
+      font-style: normal;
+    }
+    body {
+      font-family: "Pretendard-Regular";
+    }
     a {
       text-decoration: none;
       color: #333;
@@ -33,262 +42,136 @@
 </head>
 
 <body>
-  <div class="container">
+  <header>
     <h1 class="text-center"><a href="/">OnePage HTML for frontend Beginner</a></h1>
     <p class="text-center">html 한페이지로 구성되어 복붙만하면 실행될 수 있게 작성된 초보자용 UI 코드 모음집입니다.</p>
     <hr class="dropdown-divider">
-
-    <div class="d-flex flex-wrap">
-      <div class="col-4">
-        <h3 class="text-center">Basic</h3>
-        <ul class="contentlist basic list-unstyled mx-3">
-          <li class="my-2">
-            <span class="h6">데이터속성-버튼클릭시
-              배경색변경</span>
-            <div class="d-flex">
-              <a class="btn btn-outline-primary" target="_self" href="./basic/coloring-data-attribute.html">
-                Preview</a>
-              <a class="btn btn-secondary" target="_self"
-                href="https://github.com/YoHaiYo/UI-component-for-beginner.github.io/blob/main/basic/coloring-data-attribute.html">Github</a>
-            </div>
-          </li>
-          <li><a class="btn btn-outline-primary" target="_self" href="./basic/dropdown-family.html">드롭다운-패밀리사이트</a></li>
-          <li><a class="btn btn-outline-primary" target="_self" href="./basic/filtering-data-attribute.html">데이터속성-간단
-              필터링</a></li>
-          <li><a class="btn btn-outline-primary" target="_self"
-              href="./basic/filtering-data-manage-outerdata.html">데이터속성-외부데이터로 태그생성</a></li>
-          <li><a class="btn btn-outline-primary" target="_self"
-              href="./basic/header_scroll_selected_colorchange.html">스크롤-위로버튼,선택메뉴 색바꾸기</a></li>
-          <li><a class="btn btn-outline-primary" target="_self" href="./basic/header-calc-height.html">스크롤-헤더높이 자동, 스크롤시
-              헤더 접기</a></li>
-          <li><a class="btn btn-outline-primary" target="_self" href="./basic/language-select-menu.html">언어선택</a></li>
-          <li><a class="btn btn-outline-primary" target="_self" href="./basic/modal.html">모달</a></li>
-          <li><a class="btn btn-outline-primary" target="_self" href="./basic/popup-oneday-no-look.html">팝업-하루동안안보기</a>
-          </li>
-          <li><a class="btn btn-outline-primary" target="_self" href="./basic/popup-slide.html">팝업-슬라이드</a></li>
-          <li><a class="btn btn-outline-primary" target="_self" href="./basic/quick-menu.html">퀵메뉴</a></li>
-          <li><a class="btn btn-outline-primary" target="_self" href="./basic/reple.html">댓글달기(비번,삭제기능)</a></li>
-          <li><a class="btn btn-outline-primary" target="_self" href="./basic/header_hover_all_menu.html">헤더-호버시 소메뉴
-              전체나오기</a></li>
-          <li><a class="btn btn-outline-primary" target="_self" href="./basic/header_hover_one_menu.html">헤더-호버시 소메뉴
-              하나나오기</a></li>
-          <li><a class="btn btn-outline-primary" target="_self" href="./basic/hoverhashcard.html">호버됬을때 해쉬태그나오면서
-              이펙트주기</a></li>
-        </ul>
-      </div>
-
-      <div class="col-4">
-        <h3 class="text-center">Slide-Swiper</h3>
-        <ul class="contentlist Slide-Swiper list-unstyled mx-3">
-          <li><a class="btn btn-outline-primary" target="_self" href="./Silde-swiper/bgcolor-chage-slide.html">슬라이드변경시
-              색변경</a></li>
-          <li><a class="btn btn-outline-primary" target="_self" href="./Silde-swiper/double-slide.html">원버튼 이중 슬라이드</a>
-          </li>
-          <li><a class="btn btn-outline-primary" target="_self" href="./Silde-swiper/opposite-direction-slide.html">각각
-              양쪽방향으로 슬라이드</a></li>
-          <li><a class="btn btn-outline-primary" target="_self" href="./Silde-swiper/slide-css-custom.html">스와이퍼 CSS
-              커스텀</a></li>
-          <li><a class="btn btn-outline-primary" target="_self" href="./Silde-swiper/slide-cubic.html">주사위 슬라이드</a></li>
-          <li><a class="btn btn-outline-primary" target="_self" href="./Silde-swiper/slide-plugin-customazing.html">스와이퍼
-              변수값만 바꿔서 커스텀마이징</a></li>
-          <li><a class="btn btn-outline-primary" target="_self" href="./Silde-swiper/slide-plugin.html">스와이퍼 변수값만 바꿔서
-              커스텀마이징-2</a></li>
-          <li><a class="btn btn-outline-primary" target="_self" href="./Silde-swiper/slide-side-two-half.html">양쪽에 반개씩
-              보이는 슬라이드</a></li>
-          <li><a class="btn btn-outline-primary" target="_self" href="./Silde-swiper/stop-play-slide.html">stop-play
-              버튼있는 슬라이드</a></li>
-          <li><a class="btn btn-outline-danger" target="_self" href="./Silde-swiper/bullet-custom.html">★스와이퍼 블렛
-              커스텀</a></li>
-          <li><a class="btn btn-outline-danger" target="_self" href="./Silde-swiper/three_type.html">★SWIPER 커스텀 3종
-              세트</a></li>
-        </ul>
-      </div>
-      <div class="col-4">
-        <h3 class="text-center">Slide-Vanilla</h3>
-        <ul class="list-unstyled">
-          <li><a class="btn btn-outline-primary" target="_self"
-              href="./Slide-vanilla/slide-jquery-fadein.html">slide-jquery-fadein</a></li>
-          <li><a class="btn btn-outline-primary" target="_self"
-              href="./Slide-vanilla/slide-jquery-horizontal copy 2.html">slide-jquery-horizontal-2</a>
-          </li>
-          <li><a class="btn btn-outline-primary" target="_self"
-              href="./Slide-vanilla/slide-jquery-horizontal copy.html">slide-jquery-horizontal</a>
-          </li>
-          <li><a class="btn btn-outline-primary" target="_self"
-              href="./Slide-vanilla/slide-jquery-vertical copy.html">slide-jquery-vertical</a></li>
-          <li><a class="btn btn-outline-primary" target="_self"
-              href="./Slide-vanilla/slide-jquery-vertical-2 copy.html">slide-jquery-vertical-2</a>
-          </li>
-          <li><a class="btn btn-outline-primary" target="_self" href="./Slide-vanilla/tricolor-slide.html">삼색국기 슬라이드</a>
-          </li>
-        </ul>
+  </header>
+  <main>
+    <div class="container">
+      <div id="makelink" class="d-flex flex-wrap">
+        <div class="col-4">
+          <h3 class="text-center">Basic</h3>
+          <ul class="contentlist basic list-unstyled mx-3">
+            <li class="my-2">
+              <span class="h6">데이터속성-버튼클릭시
+                배경색변경</span>
+              <div class="d-flex">
+                <a class="btn btn-outline-primary" target="_self" href="./basic/coloring-data-attribute.html">
+                  Preview</a>
+                <a class="btn btn-secondary" target="_self"
+                  href="https://github.com/YoHaiYo/UI-component-for-beginner.github.io/blob/main/basic/coloring-data-attribute.html">Github</a>
+              </div>
+            </li>
+            <li><a class="btn btn-outline-primary" target="_self" href="./basic/dropdown-family.html">드롭다운-패밀리사이트</a></li>
+            <li><a class="btn btn-outline-primary" target="_self" href="./basic/filtering-data-attribute.html">데이터속성-간단
+                필터링</a></li>
+            <li><a class="btn btn-outline-primary" target="_self"
+                href="./basic/filtering-data-manage-outerdata.html">데이터속성-외부데이터로 태그생성</a></li>
+            <li><a class="btn btn-outline-primary" target="_self"
+                href="./basic/header_scroll_selected_colorchange.html">스크롤-위로버튼,선택메뉴 색바꾸기</a></li>
+            <li><a class="btn btn-outline-primary" target="_self" href="./basic/header-calc-height.html">스크롤-헤더높이 자동, 스크롤시
+                헤더 접기</a></li>
+            <li><a class="btn btn-outline-primary" target="_self" href="./basic/language-select-menu.html">언어선택</a></li>
+            <li><a class="btn btn-outline-primary" target="_self" href="./basic/modal.html">모달</a></li>
+            <li><a class="btn btn-outline-primary" target="_self" href="./basic/popup-oneday-no-look.html">팝업-하루동안안보기</a>
+            </li>
+            <li><a class="btn btn-outline-primary" target="_self" href="./basic/popup-slide.html">팝업-슬라이드</a></li>
+            <li><a class="btn btn-outline-primary" target="_self" href="./basic/quick-menu.html">퀵메뉴</a></li>
+            <li><a class="btn btn-outline-primary" target="_self" href="./basic/reple.html">댓글달기(비번,삭제기능)</a></li>
+            <li><a class="btn btn-outline-primary" target="_self" href="./basic/header_hover_all_menu.html">헤더-호버시 소메뉴
+                전체나오기</a></li>
+            <li><a class="btn btn-outline-primary" target="_self" href="./basic/header_hover_one_menu.html">헤더-호버시 소메뉴
+                하나나오기</a></li>
+            <li><a class="btn btn-outline-primary" target="_self" href="./basic/hoverhashcard.html">호버됬을때 해쉬태그나오면서
+                이펙트주기</a></li>
+          </ul>
+        </div>
+        <div class="col-4">
+          <h3 class="text-center">Slide-Swiper</h3>
+          <ul class="contentlist Slide-Swiper list-unstyled mx-3">
+            <li><a class="btn btn-outline-primary" target="_self" href="./Silde-swiper/bgcolor-chage-slide.html">슬라이드변경시
+                색변경</a></li>
+            <li><a class="btn btn-outline-primary" target="_self" href="./Silde-swiper/double-slide.html">원버튼 이중 슬라이드</a>
+            </li>
+            <li><a class="btn btn-outline-primary" target="_self" href="./Silde-swiper/opposite-direction-slide.html">각각
+                양쪽방향으로 슬라이드</a></li>
+            <li><a class="btn btn-outline-primary" target="_self" href="./Silde-swiper/slide-css-custom.html">스와이퍼 CSS
+                커스텀</a></li>
+            <li><a class="btn btn-outline-primary" target="_self" href="./Silde-swiper/slide-cubic.html">주사위 슬라이드</a></li>
+            <li><a class="btn btn-outline-primary" target="_self" href="./Silde-swiper/slide-plugin-customazing.html">스와이퍼
+                변수값만 바꿔서 커스텀마이징</a></li>
+            <li><a class="btn btn-outline-primary" target="_self" href="./Silde-swiper/slide-plugin.html">스와이퍼 변수값만 바꿔서
+                커스텀마이징-2</a></li>
+            <li><a class="btn btn-outline-primary" target="_self" href="./Silde-swiper/slide-side-two-half.html">양쪽에 반개씩
+                보이는 슬라이드</a></li>
+            <li><a class="btn btn-outline-primary" target="_self" href="./Silde-swiper/stop-play-slide.html">stop-play
+                버튼있는 슬라이드</a></li>
+            <li><a class="btn btn-outline-danger" target="_self" href="./Silde-swiper/bullet-custom.html">★스와이퍼 블렛
+                커스텀</a></li>
+            <li><a class="btn btn-outline-danger" target="_self" href="./Silde-swiper/three_type.html">★SWIPER 커스텀 3종
+                세트</a></li>
+          </ul>
+        </div>
+        <div class="col-4">
+          <h3 class="text-center">Slide-Vanilla</h3>
+          <ul class="list-unstyled">
+            <li><a class="btn btn-outline-primary" target="_self"
+                href="./Slide-vanilla/slide-jquery-fadein.html">slide-jquery-fadein</a></li>
+            <li><a class="btn btn-outline-primary" target="_self"
+                href="./Slide-vanilla/slide-jquery-horizontal copy 2.html">slide-jquery-horizontal-2</a>
+            </li>
+            <li><a class="btn btn-outline-primary" target="_self"
+                href="./Slide-vanilla/slide-jquery-horizontal copy.html">slide-jquery-horizontal</a>
+            </li>
+            <li><a class="btn btn-outline-primary" target="_self"
+                href="./Slide-vanilla/slide-jquery-vertical copy.html">slide-jquery-vertical</a></li>
+            <li><a class="btn btn-outline-primary" target="_self"
+                href="./Slide-vanilla/slide-jquery-vertical-2 copy.html">slide-jquery-vertical-2</a>
+            </li>
+            <li><a class="btn btn-outline-primary" target="_self" href="./Slide-vanilla/tricolor-slide.html">삼색국기 슬라이드</a>
+            </li>
+          </ul>
+        </div>
+    
       </div>
     </div>
-    <hr>
+  </main>
+  <footer class="bg-secondary text-center">
+    ©Copyright <span class="this-year"></span> SimSeHoon. All rights reserved.<br>
+    <a href="https://github.com/yoHaiYo" target="_blank">github : https://github.com/yoHaiYo</a> <br>
+    email : 12si47bun@naver.com<br>
+  </footer>
 
-    <div class="d-flex flex-wrap">
-
-      <div class="col-4">
-        <h3 class="text-center">Bootstrap</h3>
-        <ul class="list-unstyled">
-          <li><a class="btn btn-outline-primary" target="_self" href="./bootstrap-practice/spyscroll.html">spyscroll</a>
-          </li>
-          <li><a class="btn btn-outline-primary" target="_self" href="./bootstrap-practice/responsive-1.html">부트스트랩
-              반응형-1(작업중)</a></li>
-          <li><a class="btn btn-outline-primary" target="_self"
-              href="./bootstrap-practice/navbar-responsive-toggle.html">네비바-토글</a></li>
-        </ul>
-      </div>
-
-      <div class="col-4">
-        <h3 class="text-center">NavBar</h3>
-        <ul class="list-unstyled">
-          <li><a class="btn btn-outline-primary" target="_self" href="./navbar/basic.html">기본형 네비바</a></li>
-        </ul>
-      </div>
-
-    </div>
-
-
-  </div>
-
-  <!-- <script src="./data/filepath.js"></script> -->
-  <script>
-    // 파일경로 데이터 관리
-    const filepath = [
-      {
-        foldernum: "basic",
-        fileinfo: [
-          {
-            filenm: "coloring-data-attribute",
-            filetitle: "html데이터 속성활용",
-            starnum: "0"
-          },
-          {
-            filenm: "dropdown-family",
-            filetitle: "패밀리사이트 드롭박스 구현",
-            starnum: "0"
-          },
-          {
-            filenm: "filtering-data-attribute",
-            filetitle: "데이터속성으로 초간단 필터링",
-            starnum: "1"
-          },
-          {
-            filenm: "filtering-data-manage-outerdata",
-            filetitle: "데이터속성을 활용한 외부데이터로 태그생성",
-            starnum: "0"
-          },
-          {
-            filenm: "header-calc-height",
-            filetitle: "height()로 헤더높이 자동, 스크롤시 헤더 접기",
-            starnum: "0"
-          },
-          {
-            filenm: "header_hover_all_menu",
-            filetitle: "헤더-호버시 소메뉴 전체나오기",
-            starnum: "0"
-          },
-          {
-            filenm: "header_hover_one_menu",
-            filetitle: "헤더-호버시 소메뉴 하나 나오기",
-            starnum: "0"
-          },
-          {
-            filenm: "header_scroll_selected_colorchange",
-            filetitle: "헤더스크롤,위로버튼,선택메뉴 색바꾸기",
-            starnum: "0"
-          },
-          {
-            filenm: "hoverhashcard",
-            filetitle: "호버됬을때 해쉬태그나오면서 이펙트주기",
-            starnum: "0"
-          },
-          {
-            filenm: "language-select-menu",
-            filetitle: "언어선택 배열연습",
-            starnum: "0"
-          },
-          {
-            filenm: "modal",
-            filetitle: "Modal 기능",
-            starnum: "0"
-          },
-          {
-            filenm: "popup-oneday-no-look",
-            filetitle: "팝업-하루동안-보지않기",
-            starnum: "1"
-          },
-          {
-            filenm: "popup-slide",
-            filetitle: "팝업슬라이드",
-            starnum: "0"
-          },
-          {
-            filenm: "quick-menu",
-            filetitle: "퀵메뉴",
-            starnum: "0"
-          },
-          {
-            filenm: "reple",
-            filetitle: "댓글달기",
-            starnum: "0"
-          },
-
-        ]
-      },
-      {
-        foldernum: "Silde-swiper",
-        fileinfo: [
-          {
-            filenm: "bgcolor-chage-slide",
-            filetitle: "슬라이드변경시 색변경",
-            starnum: "0"
-          },
-          {
-            filenm: "bullet-custom",
-            filetitle: "스와이퍼 블렛 커스텀",
-            starnum: "1"
-          },
-          {
-            filenm: "double-slide",
-            filetitle: "원버튼 이중 슬라이드",
-            starnum: "0"
-          },
-        ]
-      },
-    ]
-
-    // console.log(filepath)
-
+  <script src="./data/pathdata.js">//파일경로 데이터 관리</script>
+  <script>  
     function starmaker(n) {
       return '⭐'.repeat(n);
-    }
+    }    
+    
+    const thisYear = document.querySelector('.this-year');
+    thisYear.textContent = new Date().getFullYear(); // 2023 (올해년도 출력)
 
-    function listmaker(foldernum, tagselect) {
-
-      let tagmaker = '';
-      for (x in filepath[foldernum].fileinfo)
-        tagmaker += `
-      
-    <li class="my-2">
-            <span class="h6">${Number(x) + 1}. ${starmaker(filepath[foldernum].fileinfo[x].starnum)} ${filepath[foldernum].fileinfo[x].filetitle}</span>
-            <div class="d-flex">
-              
-              <a class="btn btn-outline-primary" target="_self" href="./${filepath[foldernum].foldernum}/${filepath[foldernum].fileinfo[x].filenm}.html">
-                Preview</a>
-              <a class="btn btn-secondary" target="_self"
-                href="https://github1s.com/YoHaiYo/UI-component-for-beginner.github.io/blob/main/${filepath[foldernum].foldernum}/${filepath[foldernum].fileinfo[x].filenm}.html">Source Code</a>
+    let tagmaker = '';
+    for (x in filepath){
+      tagmaker += `
+      <div class="col-4">
+        <h3 class="text-center">${filepath[x].foldernm}</h3>
+        <ul class="contentlist basic list-unstyled mx-3"> ` 
+          for (xx in filepath[x].fileinfo){
+            tagmaker += `<li class="my-2">
+            <span class="h6">${Number(xx) + 1}. ${starmaker(filepath[x].fileinfo[xx].starnum)} ${filepath[x].fileinfo[xx].filetitle}</span>
+            <div class="d-flex">              
+              <a class="btn btn-outline-primary" target="_self" href="./${filepath[x].foldernm}/${filepath[x].fileinfo[xx].filenm}.html">Preview</a>
+              <a class="btn btn-secondary" target="_self" href="https://github1s.com/YoHaiYo/OnePageHTML_UI.github.io/blob/main/${filepath[x].foldernm}/${filepath[x].fileinfo[xx].filenm}.html">Source Code</a>
             </div>
-          </li>
-    `
-      document.querySelector(tagselect).innerHTML = tagmaker;
-
+          </li>`
+          }                  
+      tagmaker += `</ul>`
+      tagmaker += `</div>`    
     }
-    listmaker(0, ".contentlist.basic")
-    listmaker(1, ".contentlist.Slide-Swiper")
-    // listmaker(1, ".contentlist.Silde-swiper")
 
+    document.querySelector("#makelink").innerHTML = tagmaker;     
   </script>
 </body>
 
