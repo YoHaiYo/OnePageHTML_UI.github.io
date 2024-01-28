@@ -3,6 +3,16 @@ const filepath = [
     foldernm: "basic",
     fileinfo: [
       {
+        filenm: "popup-oneday-no-look",
+        filetitle: "팝업-하루동안-보지않기",
+        starnum: "1"
+      },
+      {
+        filenm: "filtering-data-attribute",
+        filetitle: "데이터속성으로 초간단 필터링",
+        starnum: "1"
+      },
+      {
         filenm: "coloring-data-attribute",
         filetitle: "html데이터 속성활용",
         starnum: "0"
@@ -11,11 +21,6 @@ const filepath = [
         filenm: "dropdown-family",
         filetitle: "패밀리사이트 드롭박스 구현",
         starnum: "0"
-      },
-      {
-        filenm: "filtering-data-attribute",
-        filetitle: "데이터속성으로 초간단 필터링",
-        starnum: "1"
       },
       {
         filenm: "filtering-data-manage-outerdata",
@@ -56,11 +61,6 @@ const filepath = [
         filenm: "modal",
         filetitle: "Modal 기능",
         starnum: "0"
-      },
-      {
-        filenm: "popup-oneday-no-look",
-        filetitle: "팝업-하루동안-보지않기",
-        starnum: "1"
       },
       {
         filenm: "popup-slide",
@@ -146,6 +146,21 @@ const filepath = [
     ]
   },
   {
+    foldernm: "navbar",
+    fileinfo: [      
+      {
+        filenm: "basic",
+        filetitle: "기본 네비바",
+        starnum: "1"
+      },
+      {
+        filenm: "navbar-2depth",
+        filetitle: "부트5-네비바-2depth",
+        starnum: "0"
+      },
+    ]
+  },
+  {
     foldernm: "Slide-vanilla",
     fileinfo: [
       {
@@ -180,19 +195,4 @@ const filepath = [
       },
     ]
   },  
-  {
-    foldernm: "navbar",
-    fileinfo: [      
-      {
-        filenm: "basic",
-        filetitle: "기본 네비바",
-        starnum: "1"
-      },
-      {
-        filenm: "navbar-2depth",
-        filetitle: "부트5-네비바-2depth",
-        starnum: "0"
-      },
-    ]
-  }
 ]
