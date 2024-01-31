@@ -16,12 +16,14 @@
       font-weight: 400;
       font-style: normal;
     }
+
     body {
       font-family: "Pretendard-Regular";
     }
+
     a {
       text-decoration: none;
-      color: #333;      
+      color: #333;
       margin: 2px;
 
       width: 45%;
@@ -36,17 +38,27 @@
       text-wrap: nowrap;
 
     }
+
     /* main {
       background-image: url('./img/bg.jpg');
       background-size: contain;
       background-repeat: repeat;      
     } */
+    img[alt="logoicon"],
+    img[alt="logo"] {
+      height: 65px;
+    }
   </style>
 </head>
 
 <body>
   <header>
-    <h1 class="text-center"><a href="/">OnePage HTML UI</a></h1>
+    <h1 class="text-center d-flex justify-content-center align-items-center "><a class=""
+        href="https://yohaiyo.github.io/OnePageHTML_UI.github.io/">
+        <img src="./img/onepagehtml_logo_icon.png" alt="logoicon">
+        <img src="./img/onepagehtml_logo.png" alt="logo">
+      </a>
+    </h1>
     <p class="text-center">html 한페이지로 구성되어 복붙만하면 실행될 수 있게 작성된 초보자용 UI 코드 모음집입니다.</p>
     <hr class="dropdown-divider">
   </header>
@@ -64,31 +76,31 @@
   </footer>
 
   <script src="./data/pathdata.js">//파일경로 데이터 관리</script>
-  <script>  
+  <script>
     function starmaker(n) {
       return '⭐'.repeat(n);
-    }    
-    
+    }
+
     const thisYear = document.querySelector('.this-year');
     thisYear.textContent = new Date().getFullYear(); // 2023 (올해년도 출력)
 
     let tagmaker = '';
-    for (x in filepath){
+    for (x in filepath) {
       tagmaker += `
       <div class="col-12 col-md-6 col-lg-4">
         <h3 class="text-center">${filepath[x].foldernm}</h3>
-        <ul class=" list-unstyled mx-3"> ` 
-          for (xx in filepath[x].fileinfo){
-            tagmaker += `<li class="my-2">
+        <ul class=" list-unstyled mx-3"> `
+      for (xx in filepath[x].fileinfo) {
+        tagmaker += `<li class="my-2">
             <span class="h6">${Number(xx) + 1}. ${starmaker(filepath[x].fileinfo[xx].starnum)} ${filepath[x].fileinfo[xx].filetitle}</span>
             <div class="d-flex flex-wrap">              
               <a class="btn btn-outline-primary" target="_self" href="./${filepath[x].foldernm}/${filepath[x].fileinfo[xx].filenm}.html">Preview</a>
               <a class="btn btn-secondary" target="_self" href="https://github.com/YoHaiYo/OnePageHTML_UI.github.io/blob/main/${filepath[x].foldernm}/${filepath[x].fileinfo[xx].filenm}.html">Source Code</a>
             </div>
           </li>`
-          }                  
+      }
       tagmaker += `</ul>`
-      tagmaker += `</div>`    
+      tagmaker += `</div>`
     }
 
     document.querySelector("#makelink").innerHTML = tagmaker;     
